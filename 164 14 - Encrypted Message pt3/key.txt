@@ -1,0 +1,5 @@
+red,7,C
+hatter,3,C
+cheshirecat,2pHZWoYd8cTbJ0n1fmeyOs6Buk4VX5i3hvQKzD)GgUPF9xjISRLwl.ANaM(rE7tq?C,S
+alice,AMivN0z3qwVcTH4W9xsEGjhJ2tlDp(5uLoFRg8r.fXOQP6Ym?Ie)dky7UKC1bZSanB,S
+quickrabbit,10,C

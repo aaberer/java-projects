@@ -1,0 +1,28 @@
+TO: Alice
+FROM: Hatter
+SUBJECT: Red Queen
+BODY: To keep ahead, run from the red queen.
+TO: Hatter
+FROM: Red
+SUBJECT: New Hat
+BODY: Hatter, I need a new hat, and if I don't get it, you won't need one.
+TO: Cheshire Cat
+FROM: Quick Rabbit
+SUBJECT: Important Meeting
+BODY: Don't be late for our very important date!
+TO: Quick Rabbit
+FROM: Cheshire Cat
+SUBJECT: Directions
+BODY: Am I going this way or that to meet you?
+TO: Alice
+FROM: Hatter
+SUBJECT: Celebration
+BODY: Happy Un-birthday!!!
+TO: Red
+FROM: Cheshire Cat
+SUBJECT: Glum
+BODY: Why so glum, queenie? You should smile more (:
+TO: Not the Hatter
+FROM: Not the Quick Rabbit
+SUBJECT: Not a subject
+BODY: Definitely not a message, definitely not from the Cheshire Cat.
