@@ -1,3 +1,4 @@
+package src;
 // Just like an Employee is a specific kind of Person, a Manager is a specific
 // kind of Employee.
 public class Manager extends Employee {

@@ -1,3 +1,4 @@
+package src;
 public class Employee extends Person {
     // An Employee IS A Person. It contains all of the data from Person, but a
     // little bit more.
