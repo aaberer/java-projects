@@ -1,0 +1,1 @@
+All Tasks are contained in Operations.java seperated by comments and easily readable in main method.
