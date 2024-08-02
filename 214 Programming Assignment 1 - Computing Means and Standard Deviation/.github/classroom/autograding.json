@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Input File Test: input1",
+      "setup": "",
+      "run": "gradle run -q --args='input_files/input1'",
+      "input": "",
+      "output": "33.899991220000004 31.410791862199144",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Input File Test: input2",
+      "setup": "",
+      "run": "gradle run -q --args='input_files/input2'",
+      "input": "",
+      "output": "12.2545998 UNDEFINED",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    }
+  ]
+}
