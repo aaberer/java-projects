@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "cec45efe-8e1d-4fc5-8b4e-c9e01771754b",
+		"name": "config",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "38361677-cec45efe-8e1d-4fc5-8b4e-c9e01771754b"
+	},
+	"item": [
+		{
+			"name": "base",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f680fba9-b18b-48fc-8e20-625c2f478408",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Server-side team name is correct\", () => {",
+							"    const response = pm.response.json();",
+							"pm.collectionVariables.set(\"TEAM_NAME\", \"t46 Software Samurais\");",
+							"    const expectedTeamName = pm.collectionVariables.get(\"TEAM_NAME\");",
+							"    pm.expect(response.serverName).to.eql(expectedTeamName);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "18869c9f-6652-42ae-ba48-5bae20c31057",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"config\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/config",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "base Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f680fba9-b18b-48fc-8e20-625c2f478408",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Server-side team name is correct\", () => {",
+							"    const response = pm.response.json();",
+							"pm.collectionVariables.set(\"TEAM_NAME\", \"t46 Software Samurais\");",
+							"    const expectedTeamName = pm.collectionVariables.get(\"TEAM_NAME\");",
+							"    pm.expect(response.serverName).to.eql(expectedTeamName);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "1e99d1c2-e66f-4204-8491-b732d703730a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"config\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/config",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check-",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a20b92cd-44f0-4a6b-8357-399b193a6681",
+						"exec": [
+							"pm.test(\"Response is not 200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"colin00:Test if countries in config worked (could break delete if cant build, but make sure connected to DB firsts)\", () => {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response.where).to.eql([",
+							"        \"Andorra\",",
+							"        \"United Arab Emirates\",",
+							"        \"Afghanistan\",",
+							"        \"Antigua and Barbuda\",",
+							"        \"Anguilla\",",
+							"        \"Albania\",",
+							"        \"Armenia\",",
+							"        \"Angola\",",
+							"        \"Antarctica\",",
+							"        \"Argentina\",",
+							"        \"American Samoa\",",
+							"        \"Austria\",",
+							"        \"Australia\",",
+							"        \"Aruba\",",
+							"        \"Azerbaijan\",",
+							"        \"Bosnia and Herzegovina\",",
+							"        \"Barbados\",",
+							"        \"Bangladesh\",",
+							"        \"Belgium\",",
+							"        \"Burkina Faso\",",
+							"        \"Bulgaria\",",
+							"        \"Bahrain\",",
+							"        \"Burundi\",",
+							"        \"Benin\",",
+							"        \"Saint Barthélemy\",",
+							"        \"Bermuda\",",
+							"        \"Brunei\",",
+							"        \"Bolivia\",",
+							"        \"Caribbean Netherlands\",",
+							"        \"Brazil\",",
+							"        \"Bahamas\",",
+							"        \"Bhutan\",",
+							"        \"Botswana\",",
+							"        \"Belarus\",",
+							"        \"Belize\",",
+							"        \"Canada\",",
+							"        \"Cocos (Keeling) Islands\",",
+							"        \"Congo (Kinshasa)\",",
+							"        \"Central African Republic\",",
+							"        \"Congo (Brazzaville)\",",
+							"        \"Switzerland\",",
+							"        \"Côte d'Ivoire\",",
+							"        \"Cook Islands\",",
+							"        \"Chile\",",
+							"        \"Cameroon\",",
+							"        \"China\",",
+							"        \"Colombia\",",
+							"        \"Costa Rica\",",
+							"        \"Cuba\",",
+							"        \"Cape Verde\",",
+							"        \"Curaçao\",",
+							"        \"Christmas Island\",",
+							"        \"Cyprus\",",
+							"        \"Czechia\",",
+							"        \"Germany\",",
+							"        \"Djibouti\",",
+							"        \"Denmark\",",
+							"        \"Dominica\",",
+							"        \"Dominican Republic\",",
+							"        \"Algeria\",",
+							"        \"Ecuador\",",
+							"        \"Estonia\",",
+							"        \"Egypt\",",
+							"        \"Western Sahara\",",
+							"        \"Eritrea\",",
+							"        \"Spain\",",
+							"        \"Ethiopia\",",
+							"        \"Finland\",",
+							"        \"Fiji\",",
+							"        \"Falkland Islands\",",
+							"        \"Micronesia\",",
+							"        \"Faroe Islands\",",
+							"        \"France\",",
+							"        \"Gabon\",",
+							"        \"United Kingdom\",",
+							"        \"Grenada\",",
+							"        \"Georgia\",",
+							"        \"French Guiana\",",
+							"        \"Guernsey\",",
+							"        \"Ghana\",",
+							"        \"Gibraltar\",",
+							"        \"Greenland\",",
+							"        \"Gambia\",",
+							"        \"Guinea\",",
+							"        \"Guadeloupe\",",
+							"        \"Equatorial Guinea\",",
+							"        \"Greece\",",
+							"        \"South Georgia and the South Sandwich Islands\",",
+							"        \"Guatemala\",",
+							"        \"Guam\",",
+							"        \"Guinea-Bissau\",",
+							"        \"Guyana\",",
+							"        \"Hong Kong\",",
+							"        \"Honduras\",",
+							"        \"Croatia\",",
+							"        \"Haiti\",",
+							"        \"Hungary\",",
+							"        \"Indonesia\",",
+							"        \"Ireland\",",
+							"        \"Israel\",",
+							"        \"Isle of Man\",",
+							"        \"India\",",
+							"        \"British Indian Ocean Territory\",",
+							"        \"Iraq\",",
+							"        \"Iran\",",
+							"        \"Iceland\",",
+							"        \"Italy\",",
+							"        \"Jersey\",",
+							"        \"Jamaica\",",
+							"        \"Jordan\",",
+							"        \"Japan\",",
+							"        \"Kenya\",",
+							"        \"Kyrgyzstan\",",
+							"        \"Cambodia\",",
+							"        \"Kiribati\",",
+							"        \"Comoros\",",
+							"        \"Saint Kitts and Nevis\",",
+							"        \"North Korea\",",
+							"        \"South Korea\",",
+							"        \"Kuwait\",",
+							"        \"Cayman Islands\",",
+							"        \"Kazakhstan\",",
+							"        \"Laos\",",
+							"        \"Lebanon\",",
+							"        \"Saint Lucia\",",
+							"        \"Liechtenstein\",",
+							"        \"Sri Lanka\",",
+							"        \"Liberia\",",
+							"        \"Lesotho\",",
+							"        \"Lithuania\",",
+							"        \"Luxembourg\",",
+							"        \"Latvia\",",
+							"        \"Libya\",",
+							"        \"Morocco\",",
+							"        \"Monaco\",",
+							"        \"Moldova\",",
+							"        \"Montenegro\",",
+							"        \"Saint Martin\",",
+							"        \"Madagascar\",",
+							"        \"Marshall Islands\",",
+							"        \"Macedonia\",",
+							"        \"Mali\",",
+							"        \"Burma\",",
+							"        \"Mongolia\",",
+							"        \"Macau\",",
+							"        \"Northern Mariana Islands\",",
+							"        \"Martinique\",",
+							"        \"Mauritania\",",
+							"        \"Montserrat\",",
+							"        \"Malta\",",
+							"        \"Mauritius\",",
+							"        \"Maldives\",",
+							"        \"Malawi\",",
+							"        \"Mexico\",",
+							"        \"Malaysia\",",
+							"        \"Mozambique\",",
+							"        \"Namibia\",",
+							"        \"New Caledonia\",",
+							"        \"Niger\",",
+							"        \"Norfolk Island\",",
+							"        \"Nigeria\",",
+							"        \"Nicaragua\",",
+							"        \"Netherlands\",",
+							"        \"Norway\",",
+							"        \"Nepal\",",
+							"        \"Nauru\",",
+							"        \"Niue\",",
+							"        \"New Zealand\",",
+							"        \"Oman\",",
+							"        \"Panama\",",
+							"        \"Perú\",",
+							"        \"French Polynesia\",",
+							"        \"Papua New Guinea\",",
+							"        \"Philippines\",",
+							"        \"Pakistan\",",
+							"        \"Poland\",",
+							"        \"Saint Pierre and Miquelon\",",
+							"        \"Pitcairn\",",
+							"        \"Puerto Rico\",",
+							"        \"Palestinian Territory\",",
+							"        \"Portugal\",",
+							"        \"Palau\",",
+							"        \"Paraguay\",",
+							"        \"Qatar\",",
+							"        \"Réunion\",",
+							"        \"Romania\",",
+							"        \"Serbia\",",
+							"        \"Russia\",",
+							"        \"Rwanda\",",
+							"        \"Saudi Arabia\",",
+							"        \"Solomon Islands\",",
+							"        \"Seychelles\",",
+							"        \"Sudan\",",
+							"        \"Sweden\",",
+							"        \"Singapore\",",
+							"        \"Saint Helena\",",
+							"        \"Slovenia\",",
+							"        \"Slovakia\",",
+							"        \"Sierra Leone\",",
+							"        \"San Marino\",",
+							"        \"Senegal\",",
+							"        \"Somalia\",",
+							"        \"Suriname\",",
+							"        \"South Sudan\",",
+							"        \"São Tomé and Principe\",",
+							"        \"El Salvador\",",
+							"        \"Sint Maarten\",",
+							"        \"Syria\",",
+							"        \"Swaziland\",",
+							"        \"Turks and Caicos Islands\",",
+							"        \"Chad\",",
+							"        \"French Southern Territories\",",
+							"        \"Togo\",",
+							"        \"Thailand\",",
+							"        \"Tajikistan\",",
+							"        \"Tokelau\",",
+							"        \"Timor-Leste\",",
+							"        \"Turkmenistan\",",
+							"        \"Tunisia\",",
+							"        \"Tonga\",",
+							"        \"Turkey\",",
+							"        \"Trinidad and Tobago\",",
+							"        \"Tuvalu\",",
+							"        \"Taiwan\",",
+							"        \"Tanzania\",",
+							"        \"Ukraine\",",
+							"        \"Uganda\",",
+							"        \"United States Minor Outlying Islands\",",
+							"        \"United States\",",
+							"        \"Uruguay\",",
+							"        \"Uzbekistan\",",
+							"        \"Vatican City\",",
+							"        \"Saint Vincent and the Grenadines\",",
+							"        \"Venezuela\",",
+							"        \"British Virgin Islands\",",
+							"        \"U.S. Virgin Islands\",",
+							"        \"Vietnam\",",
+							"        \"Vanuatu\",",
+							"        \"Wallis and Futuna\",",
+							"        \"Samoa\",",
+							"        \"Kosovo\",",
+							"        \"Yemen\",",
+							"        \"Mayotte\",",
+							"        \"South Africa\",",
+							"        \"Zambia\",",
+							"        \"Zimbabwe\",",
+							"        \"Unknown or unassigned country\"",
+							"    ]);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "fb922c2d-7489-4f40-be57-67602b8d8a65",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"config\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/config",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wwardlow: check config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "816ccefd-2128-4b76-81d1-4005bb6da5c7",
+						"exec": [
+							"pm.test(\"Response is not 200 status\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"wwardlow:Test tour feature registered\", () => {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.features).to.contain.oneOf([\"tour\"]);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "679a2931-3744-45bb-ab91-fb9a5a9296b4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\": \"config\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/config",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"config"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "68314096-3944-4e91-bfbc-fc16d7f9d4dc",
+			"key": "TEAM_NAME",
+			"value": ""
+		}
+	]
+}

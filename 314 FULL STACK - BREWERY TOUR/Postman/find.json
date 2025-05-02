@@ -1,0 +1,665 @@
+{
+	"info": {
+		"_postman_id": "31d4039a-beab-40fc-82e7-b4fc690ac4b1",
+		"name": "find",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "38361677-31d4039a-beab-40fc-82e7-b4fc690ac4b1"
+	},
+	"item": [
+		{
+			"name": "base",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33450710-008d-45c1-871e-0bf4842e6ba2",
+						"exec": [
+							"pm.test(\"Response is HTTP404 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "cd445817-bd0f-48f3-a36d-504ca29c1456",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\",\n    \"match\": \"denver\",\n    \"limit\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "colin00: test-all-count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33450710-008d-45c1-871e-0bf4842e6ba2",
+						"exec": [
+							"pm.test(\"colin00:Testing no match\", () => {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response.found).to.eql(50427);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "20664691-2e5f-45a5-9197-e27b809028ab",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\",\n    \"match\": \"\",\n    \"limit\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "colin00: test-ryp-count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33450710-008d-45c1-871e-0bf4842e6ba2",
+						"exec": [
+							"pm.test(\"colin00:Testing ryp match\", () => {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response.found).to.eql(4);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "edb64bf0-4778-4c1d-90f2-1f569c32b8b9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\",\n    \"match\": \"ryp\",\n    \"limit\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "colin00: test-ryp-places",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33450710-008d-45c1-871e-0bf4842e6ba2",
+						"exec": [
+							"pm.test(\"colin00:Testing ryp places\", () => {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response.places).to.eql([",
+							"        {",
+							"            \"name\": \"Plum Island Airport\",",
+							"            \"latitude\": \"42.7958984375\",",
+							"            \"longitude\": \"-70.84120178222656\",",
+							"            \"altitude\": \"11\",",
+							"            \"type\": \"small_airport\",",
+							"            \"municipality\": \"Newburyport\"",
+							"        },",
+							"        {",
+							"            \"name\": \"Flugplatz Möckern-Tryppehna\",",
+							"            \"latitude\": \"52.1775\",",
+							"            \"longitude\": \"11.9283333\",",
+							"            \"altitude\": \"240\",",
+							"            \"type\": \"small_airport\",",
+							"            \"municipality\": \"Tryppehna\"",
+							"        },",
+							"        {",
+							"            \"name\": \"Anna Jaques Hospital Heliport\",",
+							"            \"latitude\": \"42.81449890136719\",",
+							"            \"longitude\": \"-70.89089965820312\",",
+							"            \"altitude\": \"100\",",
+							"            \"type\": \"heliport\",",
+							"            \"municipality\": \"Newburyport\"",
+							"        },",
+							"        {",
+							"            \"name\": \"Sharypovo Airport\",",
+							"            \"latitude\": \"55.454914093\",",
+							"            \"longitude\": \"89.1738815308\",",
+							"            \"altitude\": \"1099\",",
+							"            \"type\": \"medium_airport\",",
+							"            \"municipality\": \"Sharypovo\"",
+							"        }",
+							"    ]);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "51e12092-0880-4a66-a90c-92ce53537d73",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\",\n    \"match\": \"ryp\",\n    \"limit\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "colin00: test-ter-count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33450710-008d-45c1-871e-0bf4842e6ba2",
+						"exec": [
+							"pm.test(\"colin00:Testing ter match\", () => {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response.found).to.eql(5049);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "05721d47-1de9-488b-9cf1-959c66e30b12",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\",\n    \"match\": \"ter\",\n    \"limit\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "colin00: test-ter-places",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33450710-008d-45c1-871e-0bf4842e6ba2",
+						"exec": [
+							"pm.test(\"colin00:Testing ter places\", () => {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response.places).to.eql([",
+							"        {",
+							"            \"name\": \"Bailey Generation Station Heliport\",",
+							"            \"latitude\": \"41.644500732421875\",",
+							"            \"longitude\": \"-87.122802734375\",",
+							"            \"altitude\": \"600\",",
+							"            \"type\": \"heliport\",",
+							"            \"municipality\": \"Chesterton\"",
+							"        }",
+							"    ]);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "942e6248-ee63-4953-8efe-9d95053bd755",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\",\n    \"match\": \"ter\",\n    \"limit\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test-invalid-no-match",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e15825c9-94ef-4543-92c9-515e986c344f",
+						"exec": [
+							"pm.test(\"aknott:Response is 400\", () => {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "b83c118f-53b9-4797-a823-ef763713c8df",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\",\n    \"limit\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "basic-valid-request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3b42f43c-a556-4393-b3b6-10d7f8f8697f",
+						"exec": [
+							"pm.test(\"Response is HTTP404 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "3d33a292-bf42-41e3-8fdb-0bfaeecec446",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\",\n    \"match\": \"greenwood\",\n    \"limit\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "besttest1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2a375fe4-8b2d-4814-81db-798ce072fb1c",
+						"exec": [
+							"pm.test(\"Response is HTTP404 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "cbdcc6df-321c-4982-9cb8-66ca1d7396b2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\",\n    \"match\": \"New York\",\n    \"limit\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "besttest2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9f82f579-7def-4c87-a100-3ce07dbfeb9f",
+						"exec": [
+							"pm.test(\"Response is HTTP404 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "35268402-c275-435d-be96-37e5aa91b234",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\",\n    \"match\": \"coen\",\n    \"limit\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "besttest3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a1c96b5b-9d4e-4526-a713-1429bc9e7ed2",
+						"exec": [
+							"pm.test(\"Response is HTTP404 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "da1c8a5b-b12a-4985-910f-854fb926fd01",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\",\n    \"match\": \"San Francisco\",\n    \"limit\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testTypeAirport",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e37e9f0e-0e07-4a92-988c-e3cccdfdd059",
+						"exec": [
+							"pm.test(\"aknott:Testing type airport\", () => {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.found).to.eql(7);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "7f6465e1-364c-42e0-a7d5-ad9aaf0ef1ed",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\": \"find\",\r\n    \"match\": \"denver\",\r\n    \"type\": [\"airport\"],\r\n    \"limit\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testTypeHeliport",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2ad5860f-593d-4407-97c1-d591c2d9e78f",
+						"exec": [
+							"pm.test(\"aknott:Testing type heliport\", () => {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response.found).to.eql(22);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "c6fdb03a-ca9f-4a3c-8683-803d1663ad47",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\",\n    \"match\": \"denver\",\n    \"type\": [\"heliport\"],\n    \"limit\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
