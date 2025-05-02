@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "00a714f9-23a3-4c33-bb81-ec863228bbde",
+		"name": "distances",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "38361677-00a714f9-23a3-4c33-bb81-ec863228bbde"
+	},
+	"item": [
+		{
+			"name": "base",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ecd4b7ff-275b-4898-8d6b-ce2826b42cbe",
+						"exec": [
+							"pm.test(\"Response is not 200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "4d9d57bd-6435-40f7-81a1-5e16db3e19f1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"distances\",\n    \"places\": [],\n    \"earthRadius\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testOnePlaces",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7e50c712-61ee-40d4-be8a-b00b79157c09",
+						"exec": [
+							"pm.test(\"Response is not 200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"aknott:Testing One Place\", () => {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response.distances).to.eql([0]);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "e7120f31-07f1-47bc-81ba-04bb2ba47203",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"distances\",\n    \"places\": [{\"name\": \"Manila Philipines\", \"latitude\": \"14.5995\", \"longitude\": \"120.9842\"}],\n    \"earthRadius\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testBadFormula",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5e0480a7-2769-43c7-8f92-7ddee8a91474",
+						"exec": [
+							"pm.test(\"Response is not 400 status\", () => {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "b4edb33e-7a57-4558-9e89-ad5058ef0184",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"distances\",\n    \"places\": [{\"name\": \"Manila Philipines\", \"latitude\": \"14.5995\", \"longitude\": \"120.9842\"},\n                {\"name\": \"Test Place\", \"latitude\": \"40.5995\", \"longitude\": \"-90.9842\"}],\n    \"earthRadius\": 10323,\n    \"formula\": \"notReal\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testSamePlace",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "52ffc583-4844-46b8-880a-37b16dc972ef",
+						"exec": [
+							"pm.test(\"Response is not 200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"colin00:Testing same Place\", () => {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response.distances).to.eql([0,0]);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "e0c97f34-8a85-4651-8040-4a660769f260",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"distances\",\n    \"places\": [{\"name\": \"Manila Philipines\", \"latitude\": \"14.5995\", \"longitude\": \"120.9842\"},\n                {\"name\": \"Diff place same lat/long\", \"latitude\": \"14.5995\", \"longitude\": \"120.9842\"}],\n    \"earthRadius\": 10323\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testPoles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bfb4ec03-b952-47ce-86bf-7d6faf535807",
+						"exec": [
+							"pm.test(\"Response is not 200 status\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"aknott:Testing Poles\", () => {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.distances).to.eql([20015,20015]);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "bde8f1fc-8f3e-4779-9b37-43ee003f0b19",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\": \"distances\",\r\n    \"places\": [\r\n        {\"name\": \"North Pole\", \"latitude\": \"90\", \"longitude\": \"0\"},\r\n        {\"name\": \"South Pole\", \"latitude\": \"-90\", \"longitude\": \"0\"}\r\n    ],\r\n    \"earthRadius\": 6371\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testEdgeCasesLR",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3cf64ad6-8e46-4897-807f-7492a7f697c7",
+						"exec": [
+							"pm.test(\"Response is not 200 status\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"aknott:Testing Edge Cases Large Radius\", () => {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.distances).to.eql([\r",
+							"        3141593,\r",
+							"        1570796,\r",
+							"        3141593,\r",
+							"        0,\r",
+							"        1570796\r",
+							"    ]);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "85c42b9d-a206-4f3a-808d-027cc29665f9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\": \"distances\",\r\n    \"places\": [\r\n        {\"name\": \"North Pole\", \"latitude\": \"90\", \"longitude\": \"0\"},\r\n        {\"name\": \"South Pole\", \"latitude\": \"-90\", \"longitude\": \"0\"},\r\n        {\"name\": \"Equator Prime Meridian\", \"latitude\": \"0\", \"longitude\": \"0\"},\r\n        {\"name\": \"Equator 180 Meridian\", \"latitude\": \"0\", \"longitude\": \"180\"},\r\n        {\"name\": \"Equator -180 Meridian\", \"latitude\": \"0\", \"longitude\": \"-180\"}\r\n    ],\r\n    \"earthRadius\": 1000000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testEquatorPoints",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ddfcf659-f66e-41b9-83af-3fce776b1154",
+						"exec": [
+							"pm.test(\"aknott:Testing 180 Equator points\", () => {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.distances).to.eql([0,0]);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "26346e28-0a67-4d33-8e69-cbfbb6cf4aa0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\": \"distances\",\r\n    \"places\": [\r\n        {\"name\": \"Equator 180 Meridian\", \"latitude\": \"0\", \"longitude\": \"180\"},\r\n        {\"name\": \"Equator -180 Meridian\", \"latitude\": \"0\", \"longitude\": \"-180\"}\r\n    ],\r\n    \"earthRadius\": 6371\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
